@@ -1,33 +1,9 @@
-# Website
+- 👋 Hi, I’m @The-Amateur-Dev
+- 🐦 Twitter: [@TheAmateurDev](https://www.twitter.com/TheAmateurDev)
+- 👀 I’m interested in Web Development and DevOps to increase productivity
+- 🌱 I’m currently learning how to learn in public and create my own cheatsheets / skimmable posts to reference going forward
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
-
-## Installation
-
-```console
-yarn install
-```
-
-## Local Development
-
-```console
-yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
-
-```console
-yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-```console
-GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+<!---
+The-Amateur-Dev/The-Amateur-Dev is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+--->
