@@ -1,0 +1,62 @@
+---
+slug: "/git/ssh-with-multiple-accounts"
+---
+
+# Multi-Account SSH for GitHub (Windows)
+
+I had this exact issue when setting up a separate persona for this site and to learn in public, so here are my notes on
+how I managed to setup two git personas using ssh. (I was using https but it seemed to be even more awkward).
+
+- Firstly, run ssh-add to see if the agent is running. Mine was not.
+  Run `` eval `ssh-agent -s` `` to start the agent
+
+- Then generate your key pairs by running `ssh-keygen -t ed25519 -C "jane@doe.com"` (ed25519 can be replaced with rsa but is not recommended).
+  It will ask for a name of the file default is **id_rsa**, however, you'll want to rename this to be unique if you have two accounts IE: **id_rsa_amateurdev**.
+
+- Copy the SSH Public-Key inside **id_rsa_amateurdev.pub** (Remember ".pub"!), over to [GitHub](https://github.com/settings/keys).
+
+- Now run `ssh-add ~/.ssh/id_rsa_amateurdev`. This adds your private key to the ssh-agent.
+
+- Finally, create a config file in `~/.ssh/config` with:
+
+```text
+Host github-main
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa_amateurdev
+
+Host github-secondary
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa_secondary
+```
+
+This stores your identities in your ssh config so that you can use ssh with the following format `git@github.com:username/repo.git` note that it is "git" before the @ which is the "user" in the ssh config. This is the default user when cloning from github etc.
+
+** IF ** you are running bash and being asked for SSH passwords when launching your terminal, or pushing to a repo. Then you can add the below script to your `~/.bashrc` file which will execute ssh-agent and pull in all your files from `~/.ssh/id_rsa_*`.
+
+```bash
+### Set SSH Keys on startup
+env=~/.ssh/agent.env
+ssh-add ~/.ssh/*
+agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
+
+agent_start () {
+    (umask 077; ssh-agent >| "$env")
+    . "$env" >| /dev/null ; }
+
+agent_load_env
+
+# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not running
+agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+
+if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+    agent_start
+    ssh-add
+elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+    ssh-add
+fi
+
+unset env
+
+```
