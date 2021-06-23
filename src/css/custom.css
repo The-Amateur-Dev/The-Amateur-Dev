@@ -1,0 +1,59 @@
+/* stylelint-disable docusaurus/copyright-header */
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #3912ac;
+  --ifm-font-color-base: #1c2624;
+  --ifm-background-color: #f8cf8b;
+  --ifm-color-primary-dark: #310f97;
+  --ifm-color-primary-darker: #230b6a;
+  --ifm-color-primary-darkest: #11033a;
+  --ifm-color-primary-light: #471dc6;
+  --ifm-color-primary-lighter: #501ee3;
+  --ifm-color-primary-lightest: #0000ff;
+  --ifm-code-font-size: 95%;
+
+  --ifm-menu-color: #000;
+}
+
+a {
+  text-decoration: underline;
+}
+
+a.menu__link,
+a.table-of-contents__link {
+  text-decoration: none;
+}
+
+.docusaurus-highlight-code-line {
+  /* background-color: #662900; */
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme="dark"] {
+  --ifm-background-color: #2e0f00;
+  --ifm-color-primary: #ff6c0a;
+  --ifm-color-primary-dark: #e05a00;
+  --ifm-color-primary-darker: #8f3900;
+  --ifm-color-primary-darkest: #662900;
+
+  --ifm-pre-background: #662900;
+  --ifm-code-background: #662900;
+
+  /* --ifm-color-gray-100: #945600; */
+
+  --ifm-font-color-base: #f0b7b7;
+
+  --ifm-navbar-background-color: #662900;
+
+  --ifm-navbar-link-color: #fff0e5;
+
+  --ifm-menu-color: #fff;
+}

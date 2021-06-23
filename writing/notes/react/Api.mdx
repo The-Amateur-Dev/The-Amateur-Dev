@@ -1,0 +1,48 @@
+---
+slug: /notes/react/api
+---
+
+# The Raw React API
+
+Creating an element in react an then appending it to the DOM using the raw APIs.
+
+Using a html file, pulling in React and ReactDOM from [unpkg]("https://unpkg.com") and using the React API to generate HTML can is exampled below:
+
+createElement is very similar to javascript's own createElement API.
+The first argument is the type of element you wish to create such as "h1", "div", "p".
+The second argument is an object of element props, attributes such as id and className. It however also accepts "children", which is similar to using javascript's "appendChild".
+The "children" prop can be text or another React.createElement, creating a dom tree.
+
+```html
+<script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
+<script type="module">
+  const rootElement = document.getElementById("root");
+  const element = React.createElement("div", {
+    className: "container",
+    children: "Hello World",
+  });
+  ReactDOM.render(element, rootElement);
+</script>
+```
+
+Two packages must be used: React for all things React, and ReactDOM is specifically for manipulating the browser DOM.
+This means React core can be used across platforms while only replacing ReactDOM.
+Everything is wrapped in script tags as we must remember, this is all javascript, generating html.
+
+**Removing the script tags from here forward to reduce bloating the examples**
+
+As discussed above, children can be even more "createElements"
+
+```javascript
+const rootElement = document.getElementById("root");
+const helloElement = React.createElement("span", { children: "Hello" });
+const worldElement = React.createElement("span", { children: "World" });
+const element = React.createElement("div", {
+  className: "container",
+  children: [helloElement, worldElement],
+});
+ReactDOM.render(element, rootElement);
+```
+
+Each createElement has been stored in its own variable, however, this is not required. It is done for readability. (Although, end users never use the raw API this is to understand whats going on under the hood!)
