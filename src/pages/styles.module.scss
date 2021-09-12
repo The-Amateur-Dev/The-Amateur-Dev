@@ -1,0 +1,83 @@
+/* stylelint-disable docusaurus/copyright-header */
+
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  /* padding: 4rem 0; */
+  display: block;
+  padding: 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  // Make this accessible when hidden on mobile, keep it being read out.
+  .hero__title {
+    display: none;
+  }
+
+  @media screen and (min-width: 450px) {
+    .hero__title {
+      display: block;
+    }
+  }
+}
+svg[data-name="Developer"] {
+  width: clamp(260px, 100%, 800px);
+}
+[data-name="laptop dot"] {
+  fill: var(--ifm-color-primary);
+}
+[data-name="text"] {
+  fill: var(--ifm-color-primary);
+  font-size: 28px;
+  font-family: "Courier New", monospace;
+  font-weight: 600;
+}
+html[data-theme="dark"] .heroBanner {
+  background-color: #18191a;
+  --ifm-heading-color: #fff;
+  --ifm-hero-text-color: #fff;
+
+  svg {
+    [data-name="headphone-left"],
+    [data-name="headphone-centre"],
+    [data-name="headphone-right"] {
+      fill: #ff0000;
+    }
+    [data-name="laptop"] {
+      fill: #3f3d56;
+    }
+    [data-name="table"] {
+      fill: #f8ff2a;
+    }
+    [data-name="left leaf"] {
+      fill: #3cff3c;
+    }
+    [data-name="right leaf"] {
+      fill: #69ff00;
+    }
+    [data-name="coffee"] {
+      fill: #008dc7;
+    }
+    [data-name="coffee label"] {
+      fill: #a9a9a9;
+    }
+    [data-name="shirt"] {
+      fill: var(--ifm-color-primary);
+    }
+  }
+}
+
+// @media screen and (max-width: 966px) {
+//   .heroBanner {
+//     padding: 2rem;
+//   }
+// }
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

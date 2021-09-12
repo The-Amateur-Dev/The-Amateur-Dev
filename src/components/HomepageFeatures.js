@@ -1,43 +1,51 @@
-import React from 'react';
-import clsx from 'clsx';
-import styles from './HomepageFeatures.module.css';
+import React from "react";
+import clsx from "clsx";
+import styles from "./HomepageFeatures.module.css";
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('../../static/img/undraw_docusaurus_mountain.svg').default,
+    title: "Learn in Public",
+    Svg: require("../../static/img/publicLearning.svg").default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        I am sharing my thoughts in the public domain in the hopes that it can
+        serve others well. If I manage to stumble upon a topic I struggle with
+        and help the next person along understand it quicker than I did, I'm
+        happy. Knowledge sharing is key to innovation and progression.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('../../static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Creating a "Second Brain"',
+    Svg: require("../../static/img/book.svg").default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        "Second Brain" is an idea I learned through Swyx while he has been
+        learning in public. I have been following tutorials and learning web
+        development for a while, however, I'd often find myself refreshing my
+        memory on a lot of topics or see past projects and wonder how on earth I
+        achieved that!
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
+    title: "Make mistakes",
+    Svg: require("../../static/img/mistake.svg").default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        I am learning, and I will make mistakes. I may misunderstand a concept
+        or best practice. If you notice this, please use the "Edit this Page"
+        button to help inform me of my mistake! I am open to discussions and
+        understanding my mistakes, so please reach out. Or via twitter{" "}
+        <a href="https://www.twitter.com/TheAmateurDev">@TheAmateurDev</a>
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({ Svg, title, description }) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx("col col--4")}>
       <div className="text--center">
         <Svg className={styles.featureSvg} alt={title} />
       </div>

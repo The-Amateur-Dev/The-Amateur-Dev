@@ -1,17 +1,39 @@
 ---
-slug: /notes/react/api
+slug: /notes/react
+sidebar_position: 1
+title: React API
 ---
+
+import { ExternalLink } from "/src/components/externalLink";
 
 # The Raw React API
 
+:::tip Not for Production
+
+The core React API is never used in production, however, it is useful to understand what goes on under the hood.
+
+:::
+
 Creating an element in react an then appending it to the DOM using the raw APIs.
 
-Using a html file, pulling in React and ReactDOM from [unpkg]("https://unpkg.com") and using the React API to generate HTML can is exampled below:
+Using a html file, pulling in React and ReactDOM from <ExternalLink text="unpkg" href="https://unpkg.com"/> and using the React API to generate HTML can is exampled below:
 
 createElement is very similar to javascript's own createElement API.
 The first argument is the type of element you wish to create such as "h1", "div", "p".
 The second argument is an object of element props, attributes such as id and className. It however also accepts "children", which is similar to using javascript's "appendChild".
 The "children" prop can be text or another React.createElement, creating a dom tree.
+
+Instead of passing children as a prop, all arguments beyond the second are treated as children too.
+
+```javascript
+React.createElement("div", {
+    className: "container",
+    {},
+    "Hello",
+    " ",
+    "World",
+  });
+```
 
 ```html
 <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
@@ -32,7 +54,7 @@ Everything is wrapped in script tags as we must remember, this is all javascript
 
 **Removing the script tags from here forward to reduce bloating the examples**
 
-As discussed above, children can be even more "createElements"
+As discussed above, children can be nested. This is done using even more "createElements"
 
 ```javascript
 const rootElement = document.getElementById("root");
@@ -44,5 +66,7 @@ const element = React.createElement("div", {
 });
 ReactDOM.render(element, rootElement);
 ```
+
+When using children as a prop, there will be a warning from react regarding children requiring unique keys. This is so react can rerender a little as possible by keeping track of every unique element, without a unique key it may be forced to rerender many at a time.
 
 Each createElement has been stored in its own variable, however, this is not required. It is done for readability. (Although, end users never use the raw API this is to understand whats going on under the hood!)

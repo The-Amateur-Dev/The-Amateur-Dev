@@ -1,0 +1,72 @@
+---
+slug: /notes/react/components
+sidebar_position: 3
+title: Custom Components
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+## Functions rendering elements
+
+Custom Components allow us to share JSX across multiple pages or even allow for composition of different components to create alternative styles with base features etc.
+
+Components ARE functions that return a renderable value. Meaning it will be compiled to a few React.createElement calls. An example below shows a message function that returns a div with the class "message", and the children taken as a prop.
+
+**Click the "Compiled" tab to visualise the JSX as function calls.**
+
+<Tabs
+  defaultValue="jsx"
+  values={[
+    { label: 'React', value: 'jsx', },
+    { label: 'Compiled', value: 'compiled', },
+  ]
+}>
+<TabItem value="jsx">
+
+```jsx live
+function jsxElementFunction() {
+  const message = ({ children }) => {
+    return <div className="message">{children}</div>;
+  };
+  return (
+    <div className="container">
+      {message({ children: "Hello World" })}
+      {message({ children: "Goodbye World" })}
+    </div>
+  );
+}
+```
+
+</TabItem>
+<TabItem value="compiled">
+
+```javascript live
+function jsxElementFunction() {
+  const message = ({ children }) => {
+    return React.createElement(
+      "div",
+      {
+        className: "message",
+      },
+      children
+    );
+  };
+
+  return React.createElement(
+    "div",
+    {
+      className: "container",
+    },
+    message({
+      children: "Hello World",
+    }),
+    message({
+      children: "Goodbye World",
+    })
+  );
+}
+```
+
+</TabItem>
+</Tabs>

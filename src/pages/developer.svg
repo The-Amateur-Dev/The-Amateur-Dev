@@ -1,0 +1,32 @@
+<svg data-name="Developer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 878 483">
+  <path d="M134 413c-19 14-25 40-25 40s26 2 46-13 25-40 25-40-26-2-46 13z" data-name="right leaf" fill="#fffc00"/>
+  <path data-name="left leaf" d="M142 420c-9 22-33 34-33 34s-8-25 1-48 33-34 33-34 9 25-1 48z" fill="#d2d00d"/>
+  <path d="M704 355a195 195 0 01-2-43l2-23c-9 18-7 42 0 66zM711 359a143 143 0 01-1-26l1-13c-5 10-4 24 0 39z" fill="#cacaca"/>
+  <path data-name="coffee" d="M742 376v7a2 2 0 01-3 3h-4a1 1 0 000 1v64a2 2 0 01-3 2h-47a2 2 0 01-3-2v-64a1 1 0 000-1h-5a2 2 0 01-2-3v-7a2 2 0 012-3h62a2 2 0 013 3z" fill="#00b701"/>
+  <path data-name="coffee label" fill="#e6e6e6" d="M683 387h52v3h-52zM735 422c-18 7-35 7-53 0v-17a83 83 0 0153 0z"/>
+  <circle data-name="Ellipse 276" cx="441.9" cy="99.2" r="70.7" fill="#feb8b8"/>
+  <path data-name="Hair" d="M508 38a82 82 0 00-47-35l-8 6V1a75 75 0 00-14-1l-8 7V1a81 81 0 00-56 33 72 72 0 00-3 79l15-39a40 40 0 0010 0l5-13 2 12c16-1 41-4 57-7l-2-9 9 7 8-3c11 19 26 31 37 50 5-26 10-49-5-73z" fill="#ffe784"/>
+  <path d="M594 281c-3-15-5-30-12-43-4-8-11-17-21-18a20 20 0 01-6-2l-46-26c-5-3-13-9-17-9s-20 3-82-2c0 0-17 7-30 15l-66 34c-4 0-9 3-11 7-3 3-4 8-5 12l40 93a8 8 0 011 4 9 9 0 01-2 4c-6 11-6 24-5 37 0 13 1 27-4 38l-6 10c-3 7-4 30-2 37l255 8c-6-15 19-199 19-199z" data-name="shirt" fill="#ce00ce"/>
+  <path data-name="Left Arm" d="M286 333a45 45 0 00-1 12l4 52 1 15 4 28a5 5 0 005 5c16 4 33 4 49 3 26-2 90-4 94-9s1-14-4-18-90-14-90-14c1-7 4-13 6-19 4-11 8-22 8-34s-4-24-14-31c-8-6-18-7-28-7-7 1-19-1-25 2-5 2-8 10-9 15z" fill="#fbbebe"/>
+  <path data-name="shirt" d="M300 239a13 13 0 00-3 4 214 214 0 00-18 73 7 7 0 01-1 4 16 16 0 01-2 2 7 7 0 001 10c2-4 7-5 12-5 21-2 42 8 64 7l-5-16c-6-23 8-49 0-71-2-5-5-9-9-11a24 24 0 00-6-2c-5-1-16-5-21-3-2 0-3 2-5 3-2 2-5 2-7 5z" fill="#ce00ce"/>
+  <path data-name="Right Arm" d="M594 318c-6-3-19-1-26-2-9 0-20 1-28 7-9 7-14 19-14 31s4 23 9 34l5 19s-84 10-89 14-8 12-4 18 126 10 142 6a5 5 0 006-5l3-28 2-15 3-52a45 45 0 000-12c-1-5-4-13-9-15z" fill="#fbbebe"/>
+  <path data-name="shirt" d="M574 234c-2-1-2-3-4-3-6-2-16 2-22 3a24 24 0 00-5 2c-5 2-8 6-9 11-9 22 5 48 0 71l-5 16c21 1 42-9 63-7 5 0 10 1 12 5a7 7 0 001-10 16 16 0 01-2-2 7 7 0 01-1-4 214 214 0 00-17-73 13 13 0 00-3-4c-2-3-6-3-8-5z" fill="#ce00ce"/>
+  <circle cx="420.9" cy="438.8" r="19.1" fill="#fbbebe"/>
+  <circle cx="463.2" cy="438.8" r="19.1" fill="#fbbebe"/>
+  <rect data-name="laptop" rx="10" ry="10" x="300" y="300" width="300" height="180" fill="#fff"/>
+  <text data-name="text" x="330" y="360" fill="red">
+    The Amateur Dev
+  </text>
+  <circle data-name="laptop dot" cx="449.2" cy="390.8" r="7.6"/>
+  <path data-name="table" fill="#9d6100" d="M879 450H0v27h52v6h775v-6h52v-27z"/>
+  <circle data-name="eyeball" cx="410" cy="100" r="10" fill="#fff"/>
+  <circle data-name="eyecolor" cx="411" cy="102" r="5" fill="#00f"/>
+  <circle data-name="eyeball" cx="469" cy="99" r="10" fill="#fff"/>
+  <circle data-name="eyecolor" cx="470" cy="100" r="5" fill="#00f"/>
+  <path data-name="glasses" d="M428 95c2-10 22-10 25 0M395 93l-25 2M485 93l25 2" stroke="#000a" fill="transparent" filter="drop-shadow(1px 1px 0px #fff) drop-shadow(-1px 1px 0px #fff) drop-shadow(1px -1px 0px #fff) drop-shadow(-1px -1px 0px #fff)"/>
+  <circle data-name="glasses" cx="410" cy="100" r="17" fill="none" stroke="#000a" filter="drop-shadow(1px 1px 0px #fff) drop-shadow(-1px 1px 0px #fff) drop-shadow(1px -1px 0px #fff) drop-shadow(-1px -1px 0px #fff)"/>
+  <circle data-name="glasses" cx="470" cy="100" r="17" fill="none" stroke="#000a" filter="drop-shadow(1px 1px 0px #fff) drop-shadow(-1px 1px 0px #fff) drop-shadow(1px -1px 0px #fff) drop-shadow(-1px -1px 0px #fff)"/>
+  <path d="M377 126c-11 0-21-10-21-23V92c0-12 10-22 21-22v56z" data-name="headphone-left" fill="#000771"/>
+  <path d="M508 70c11 0 21 10 21 22v11c0 13-10 23-21 23V70z" data-name="headphone-centre" fill="#000771"/>
+  <path d="M519 94h-3c0-45-34-81-75-81-42 0-75 36-75 81h-4c0-47 35-85 79-85 43 0 78 38 78 85z" data-name="headphone-right" fill="#000771"/>
+</svg>

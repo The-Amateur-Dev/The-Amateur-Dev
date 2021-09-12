@@ -1,0 +1,194 @@
+---
+slug: /notes/react/jsx
+sidebar_position: 2
+title: JSX
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { ExternalLink } from "/src/components/externalLink";
+
+## JSX to API
+
+<ExternalLink
+  text="React JSX Docs"
+  href="https://reactjs.org/docs/introducing-jsx.html"
+/>
+
+JSX compiles down to the Raw React API. It is here to improve developer experience, not that the raw api was ever intended to be consumed by a regular developer. The <ExternalLink text="Babel" href="https://babeljs.io/repl#?builtIns=App&code_lz=MYewdgzgLgBArgSxgXhgHgCYIG4D40QAOAhmLgBICmANtSGgPRGm7rNkDqIATtRo-3wMseAFBA&presets=react&prettier=true"/> Playground demonstrates what happens during compilation to our React code.
+See the "Compiled" tab below.
+
+<Tabs
+  defaultValue="jsx"
+  values={[
+    { label: 'React', value: 'jsx', },
+    { label: 'Compiled', value: 'compiled', },
+  ]
+}>
+<TabItem value="jsx">
+
+```jsx
+<h1> I am JSX </h1>
+```
+
+</TabItem>
+<TabItem value="compiled">
+  
+```javascript
+React.createElement("h1", null, " I am JSX ");
+```
+
+</TabItem>
+</Tabs>
+
+## Embedding Expressions in JSX
+
+Any valid <ExternalLink text="expression" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#expressions"/> (Code that resolves to a value), can be embedded into JSX. To do this we used curly braces {}.
+
+```jsx live
+function getNameAge() {
+  const age = 21;
+  const name = "Uchi";
+  const element = (
+    <p>
+      {name} is {age} years old
+    </p>
+  );
+
+  return element;
+}
+```
+
+Elements can also be passed attributes such as a class, all attributes from HTML and CSS are camel cased "className" when using JSX. If you right-click inspect the result, you'll see the paragraph tag has a class of "yearsold".
+
+Differences between HTML and JSX can be seen on the <ExternalLink text="React Docs" href="https://reactjs.org/docs/dom-elements.html#differences-in-attributes"/>.
+
+```jsx live
+function getNameAge() {
+  const age = 21;
+  const name = "Uchi";
+  const ageClass = "yearsold";
+  return (
+    <p className={ageClass}>
+      {name} is {age} years old
+    </p>
+  );
+}
+```
+
+## Spreading props
+
+[Spreading](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax), is a very useful syntax for expanding all properties of one object onto another.
+
+React APIs could apply props to an element in the second argument as an object:
+It can spread props onto the element, when using JSX it is a very common pattern to do this.
+
+```jsx live
+function createEl() {
+  const props = { children: "Hello World", className: "wrapper" };
+  let element = React.createElement("div", props);
+  element = React.createElement("div", { className: "overridden", ...props });
+  return element;
+}
+```
+
+In JSX spreading props into the element is written as:
+
+```jsx live
+function spreadProps() {
+  const props = { children: "Hello World", className: "wrapper" };
+  return <div {...props} />;
+}
+```
+
+## Interpolation
+
+As described by [Kent C. Dodds](https://twitter.com/kentcdodds) the definition of interpolation is:
+
+> "Interpolation" is defined as "the insertion of something of a different nature into something else."
+
+It is also described [here](https://egghead.io/lessons/react-understand-and-use-interpolation-in-jsx), in a free egghead video by Kent.
+
+**Any [expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#expressions) can be interpolated using curly brackets {In here}**
+In fact, we've already used interpolation in our previous examples, it is very commonly used when writing JSX. For example:
+
+```javascript
+const age = 21;
+const name = "Uchi";
+const ageClass = "yearsold";
+return (
+  <p className={ageClass}>
+    {name} is {age} years old
+  </p>
+);
+```
+
+The interpolated values are **age**, **ageClass**, **name**. You can see the values are assigned to variables and then inserted into the JSX that is returned. With React, we swap between JSX land and Javascript Land, to jump into Javascript land from within JSX, we use {Curly Brackets} to run expressions.
+
+Use the tabs below to swap between JSX and Javascript land within the function.
+
+<Tabs
+  defaultValue="javascript"
+  values={[
+    { label: 'Javascript', value: 'javascript', },
+    { label: 'JSX', value: 'jsx', },
+  ]
+}>
+<TabItem value="javascript">
+
+```jsx
+// highlight-start
+function getNameAge() {
+  const age = 21;
+  const name = "Uchi";
+  const ageClass = "yearsold";
+  return (
+    // highlight-end
+    <p
+      className=
+       {/*highlight-next-line*/}
+      {ageClass}
+    >
+      {/*highlight-next-line*/}
+      {name}
+      is
+      {/*highlight-next-line*/}
+      {age}
+      years old
+    </p>
+      {/*highlight-next-line*/}
+  );
+      {/*highlight-next-line*/}
+}
+```
+
+</TabItem>
+<TabItem value="jsx">
+
+```jsx
+function getNameAge() {
+  const age = 21;
+  const name = "Uchi";
+  const ageClass = "yearsold";
+  return (
+       {/*highlight-start*/}
+    <p
+      className=
+       {/*highlight-end*/}
+      {ageClass}
+      {/*highlight-next-line*/}
+    >
+      {name}
+      {/*highlight-next-line*/}
+      is
+      {age}
+      {/*highlight-start*/}
+      years old
+    </p>
+      {/*highlight-end*/}
+  );
+}
+```
+
+</TabItem>
+</Tabs>

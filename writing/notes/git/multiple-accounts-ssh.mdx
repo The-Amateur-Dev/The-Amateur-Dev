@@ -1,8 +1,9 @@
 ---
-slug: "/git/ssh-with-multiple-accounts"
+slug: /notes/git/ssh-with-multiple-accounts
+title: Multi-Account SSH for GitHub (Windows)
 ---
 
-# Multi-Account SSH for GitHub (Windows)
+import { ExternalLink } from "/src/components/externalLink";
 
 I had this exact issue when setting up a separate persona for this site and to learn in public, so here are my notes on
 how I managed to setup two git personas using ssh. (I was using https but it seemed to be even more awkward).
@@ -13,7 +14,7 @@ how I managed to setup two git personas using ssh. (I was using https but it see
 - Then generate your key pairs by running `ssh-keygen -t ed25519 -C "jane@doe.com"` (ed25519 can be replaced with rsa but is not recommended).
   It will ask for a name of the file default is **id_rsa**, however, you'll want to rename this to be unique if you have two accounts IE: **id_rsa_amateurdev**.
 
-- Copy the SSH Public-Key inside **id_rsa_amateurdev.pub** (Remember ".pub"!), over to [GitHub](https://github.com/settings/keys).
+- Copy the SSH Public-Key inside **id_rsa_amateurdev.pub** (Remember ".pub"!), over to <ExternalLink text="GitHub" href="https://github.com/settings/keys"/>.
 
 - Now run `ssh-add ~/.ssh/id_rsa_amateurdev`. This adds your private key to the ssh-agent.
 
@@ -31,14 +32,20 @@ Host github-secondary
   IdentityFile ~/.ssh/id_rsa_secondary
 ```
 
-This stores your identities in your ssh config so that you can use ssh with the following format `git@github.com:username/repo.git` note that it is "git" before the @ which is the "user" in the ssh config. This is the default user when cloning from github etc.
+This stores your identities in your ssh config so that you can use ssh with the following format based on the config above `user@host:githubUsername/githubRepo.git` = `git@github-main:username/repo.git` note that it is "git" before the @ which is the "user" in the ssh config. This is the default user when cloning from github etc.
 
-** IF ** you are running bash and being asked for SSH passwords when launching your terminal, or pushing to a repo. Then you can add the below script to your `~/.bashrc` file which will execute ssh-agent and pull in all your files from `~/.ssh/id_rsa_*`.
+** IF ** you are running bash and being asked for SSH passwords
+when launching your terminal, or pushing to a repo.
+Then you can add the below script to your `~/.bashrc`
+file which will execute ssh-agent and pull in all your files
+from `~/.ssh/id_!(*.pub)`. Which is saying, every file inside
+.ssh that begins with "id\_" and doesn't end with ".pub".
 
 ```bash
 ### Set SSH Keys on startup
 env=~/.ssh/agent.env
-ssh-add ~/.ssh/*
+### add all files beginning with id without a .pub extension.
+ssh-add ~/.ssh/id_!(*.pub)
 agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
 
 agent_start () {

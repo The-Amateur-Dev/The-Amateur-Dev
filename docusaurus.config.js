@@ -3,8 +3,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: "test",
-  tagline: "Dinosaurs are coollllll",
+  title: "The Amateur Dev",
+  tagline: "A Professional Amateur",
   url: "https://your-docusaurus-test-site.com",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -12,12 +12,13 @@ module.exports = {
   favicon: "img/favicon.ico",
   organizationName: "facebook", // Usually your GitHub org/user name.
   projectName: "docusaurus", // Usually your repo name.
+  plugins: ["docusaurus-plugin-sass", "@docusaurus/theme-live-codeblock"],
   themeConfig: {
     navbar: {
-      title: "My Site",
+      title: "The Amateur Dev",
       logo: {
         alt: "My Site Logo",
-        src: "img/logo.svg",
+        src: "img/favicon-32x32.png",
       },
       items: [
         {
@@ -29,7 +30,7 @@ module.exports = {
         {
           type: "doc",
           position: "left",
-          docId: "docs/intro",
+          docId: "resources/intro",
           label: "Docs",
         },
         { to: "/blog", label: "Blog", position: "left" },
@@ -116,7 +117,7 @@ module.exports = {
         },
         pages: {},
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: require.resolve("./src/css/custom.scss"),
         },
       },
     ],
